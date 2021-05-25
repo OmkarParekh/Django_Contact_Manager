@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <form class="container mt-5" action="{% url 'EditContact' data.id %}" method="POST">
+        {%csrf_token%}
+        <div class="form-style-heading"><h2>Edit Contact</h2></div>
+        <br>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" name='email' value="{{data.email}}">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input type="text" class="form-control" name='name' value="{{data.Name}}" >
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Number</label>
+          <input type="text" class="form-control" name='number' value="{{data.Number}}" >
+        </div>
+    
+        <button type="submit" class="btn btn-primary">update</button>
+      </form>
+{% endblock %}
